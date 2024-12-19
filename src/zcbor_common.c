@@ -60,7 +60,7 @@ bool zcbor_process_backup(zcbor_state_t *state, uint32_t flags,
 		* 0th backup would be unused. */
 	size_t i = state->constant_state->current_backup - 1;
 
-	zcbor_log("Process backup (level %zu, flags 0x%x)\n", i, flags);
+	zcbor_log("Process backup (level %zu, flags 0x%"PRIx32")\n", i, flags);
 
 	if (flags & ZCBOR_FLAG_RESTORE) {
 		if (!(flags & ZCBOR_FLAG_KEEP_PAYLOAD)) {
