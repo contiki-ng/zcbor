@@ -373,8 +373,8 @@ static bool list_map_end_encode(zcbor_state_t *state, size_t max_num,
 
 	const uint8_t *payload = state->payload;
 
-	size_t max_header_len = zcbor_header_len_ptr(&max_num, 4) - 1;
-	size_t header_len = zcbor_header_len_ptr(&list_count, 4) - 1;
+	size_t max_header_len = zcbor_header_len_ptr(&max_num, sizeof(max_num)) - 1;
+	size_t header_len = zcbor_header_len_ptr(&list_count, sizeof(list_count)) - 1;
 
 	if (!zcbor_process_backup(state, ZCBOR_FLAG_RESTORE | ZCBOR_FLAG_CONSUME, (size_t)0xFFFFFFFF)) {
 		ZCBOR_FAIL();
