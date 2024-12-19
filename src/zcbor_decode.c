@@ -1201,6 +1201,7 @@ static bool float_check(zcbor_state_t *state, uint8_t additional_val)
 }
 
 
+#ifdef ZCBOR_DISABLE_FLOAT
 bool zcbor_float16_bytes_decode(zcbor_state_t *state, uint16_t *result)
 {
 	PRINT_FUNC();
@@ -1447,6 +1448,7 @@ bool zcbor_float_pexpect(zcbor_state_t *state, double *expected)
 	PRINT_FUNC();
 	return zcbor_float_expect(state, *expected);
 }
+#endif /* ZCBOR_DISABLE_FLOAT */
 
 
 bool zcbor_any_skip(zcbor_state_t *state, void *result)

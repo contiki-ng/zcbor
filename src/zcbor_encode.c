@@ -488,7 +488,7 @@ bool zcbor_bool_put(zcbor_state_t *state, bool input)
 	return zcbor_simple_put(state, (!!input + ZCBOR_BOOL_TO_SIMPLE));
 }
 
-
+#ifndef ZCBOR_DISABLE_FLOAT
 bool zcbor_float64_encode(zcbor_state_t *state, const double *input)
 {
 	if (!value_encode_len(state, ZCBOR_MAJOR_TYPE_SIMPLE, input,
@@ -550,6 +550,7 @@ bool zcbor_float16_bytes_put(zcbor_state_t *state, uint16_t input)
 {
 	return zcbor_float16_bytes_encode(state, &input);
 }
+#endif /* ZCBOR_DISABLE_FLOAT */
 
 
 bool zcbor_tag_put(zcbor_state_t *state, uint32_t tag)

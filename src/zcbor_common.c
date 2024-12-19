@@ -321,7 +321,7 @@ int zcbor_entry_function(const uint8_t *payload, size_t payload_len,
 	return ZCBOR_SUCCESS;
 }
 
-
+#ifndef ZCBOR_DISABLE_FLOAT
 /* Float16: */
 #define F16_SIGN_OFFS 15 /* Bit offset of the sign bit. */
 #define F16_EXPO_OFFS 10 /* Bit offset of the exponent. */
@@ -426,7 +426,7 @@ uint16_t zcbor_float32_to_16(float input)
 
 	return value16;
 }
-
+#endif /* ZCBOR_DISABLE_FLOAT */
 
 /** Weak strnlen() implementation in case it is not available.
  *
